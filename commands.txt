@@ -14,3 +14,6 @@ podman run -d --rm --hostname keycloak --name keycloak \
 -e JAVA_OPTS_KC_HEAP="-XX:MaxRAMPercentage=70 -XX:InitialRAMPercentage=50" \
 --network host mykeycloak:latest start --optimized
 
+https://developers.redhat.com/blog/2017/10/31/docker-authentication-keycloak#configure_the_keycloak_client_and_a_docker_registry
+podman run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=password jboss/keycloak -Dkeycloak.profile.feature.docker=enabled -b 0.0.0.0
+http://localhost:8080/auth/admin/master/console/
