@@ -1,9 +1,8 @@
-CREATE USER 'keycloak'@'10.0.2.100' IDENTIFIED BY '9348hfaduh9y34hDFARTTGERQ..jhferiluh';
-ALTER USER 'keycloak'@'10.0.2.100' IDENTIFIED BY '9348hfaduh9y34hDFARTTGERQ..jhferiluh';
-GRANT ALL ON *.* TO 'keycloak'@'10.0.2.100';
+ALTER USER 'keycloak'@'%' IDENTIFIED BY '9348hfaduh9y34hDFARTTGERQ..jhferiluh';
 
 CREATE DATABASE keycloak;
-
+CREATE USER 'keycloak'@'%' IDENTIFIED BY '9348hfaduh9y34hDFARTTGERQ..jhferiluh';
+GRANT ALL ON keycloak.* TO 'keycloak'@'%';
 FLUSH PRIVILEGES;
 
 
