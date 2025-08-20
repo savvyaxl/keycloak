@@ -1,0 +1,19 @@
+cat << EOF > ~/.config/systemd/user/keycloak.service
+# /home/podman/systemd/user/keycloak.service
+[Unit]
+Description=Podman Compose Service for keycloak
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/podman/keycloak
+ExecStart=/usr/bin/podman-compose up -d
+ExecStop=/usr/bin/podman-compose down
+
+[Install]
+WantedBy=default.target
+EOF
+systemctl --user daemon-reload
+systemctl --user enable --now keycloak.service
