@@ -1,0 +1,13 @@
+cat << EOF > /etc/firewalld/services/keycloak.xml
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>keycloak</short>
+  <description>keycloakserver</description>
+  <port protocol="tcp" port="8443"/>
+</service>
+EOF
+firewall-cmd --reload
+firewall-cmd --add-service keycloak
+firewall-cmd --add-service keycloak --permanent
+
+

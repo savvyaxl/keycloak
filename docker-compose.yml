@@ -1,0 +1,29 @@
+# https://github.com/savvyaxl/keycloak
+version: '2.4'
+
+services:
+  keycloak:
+    build: 
+      context: ./
+      network: host
+    container_name: keycloak
+    hostname: keycloak.nfs.info
+    restart: on-failure:5
+    ports:
+      - 8443:8443
+    security_opt:
+      - no-new-privileges
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    command:
+       start
+
+#start #--optimized
+
+      
+#bootstrap-admin --username admin --password yourpassword
